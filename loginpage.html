@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login/singup</title>
+    <style>
+        .container{
+            /* border: 2px solid red; */
+            height: 500px;
+            display: flex;
+            width: 60%;
+            background-color: rgb(255, 255, 255);
+            margin: auto;
+            margin-top: 100px;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+          border-radius: 5px;
+        }
+        .left{
+             width: 40%;
+            background-color:#2874f0 ;
+            color: white;
+          
+        }
+        .left h2{
+            margin-left: 30px;
+            margin-top: 60px;
+            font-size: 40px;
+        }
+        .left p{
+            margin-left: 30px;
+            margin-top: 20px;
+            font-size: 20px;
+            color: rgb(214, 223, 230);
+        }
+        .left img{
+            margin-left: 40px;
+            margin-top: 50px;
+        }
+        .right{
+            width: 60%;
+            padding: 50px;
+        }
+        #number{
+            font-size: 20px;
+        }
+        #name{
+            font-size: 20px;
+        }
+        h3{
+            color: red;
+            font-size: 10px;
+        }
+      
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+       <h2>log in</h2>
+       <p>get acces to your orders, <br>
+        wishlists and recomdations</p>
+        <img src="https://www.linkpicture.com/q/login.png" alt="">
+        </div>
+        <div class="right">
+        <form>
+            <h2>Mobile no:-</h2>
+            <input type="number" placeholder="Enter Mobile no" id="number">
+            <h3 class="numberShow"></h3>
+           <div id="inputForOpt">
+
+           </div>
+           
+            <h2>Full Name:-</h2>
+            <input type="text" placeholder="Enter Full Name" id="name">
+            <h3 class="nameShow"></h3>
+            <input type="submit">
+
+        </form>
+        </div>
+    </div>
+    
+</body>
+<script>
+let formEl=document.querySelector("form"); 
+let inputEl=document.getElementById("input");
+let loginofindex=document.querySelector(".loginbtn")
+let name=document.getElementById("name");
+let number=document.getElementById("number")
+let numberShow=document.querySelector(".numberShow");
+let nameShow= document.querySelector(".nameShow");
+let inputForOpt=document.getElementById("inputForOpt");
+let otp=12345;
+
+
+formEl.addEventListener("submit", function(e){
+    e.preventDefault();
+    validate()
+})
+function validate(){
+   if(name.value==""){
+    nameShow.innerText="Name should not be Empty";
+  
+   }
+   else if(name.value.length<5){
+    nameShow.innerText=("Name Should be more than five letter")
+   }else{
+    nameShow.innerText=""
+   
+   }
+    if(number.value==""){
+    numberShow.innerText=("Mobile Number should not be Empty");
+
+   }
+   else if(number.value.length<10){
+    numberShow.innerText=("Mobile Number Should not be less than ten Number");
+   }
+   else if(number.value.length>10){
+    numberShow.innerText=("Mobile Number Should not be more than ten Number");
+   }
+   else{
+    numberShow.innerText=""
+  
+}
+cred()
+}
+function cred(){
+    inputForOpt.innerHTML=""
+    if(name.value.length>=5 && number.value.length==10){
+    let OTP= document.createElement("input");
+    
+    let button=document.createElement("button");
+    button.innerText="Submit OTP"
+    button.addEventListener("click", function(e){
+     e.preventDefault();
+     if(OTP.value==otp){
+        alert("successfully log in")
+        return window.location="../index.html"
+
+     }
+     else{
+        alert("wrong OTP")
+     }
+    })
+    inputForOpt.append(OTP, button)
+   }
+
+}
+</script>
+</html>
