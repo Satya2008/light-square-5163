@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #nav {
+            background-color: #2874f0;
+            width: 100%;
+            height: 55px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 2px solid red; */
+            font-family: 'Roboto', sans-serif;
+            position: fixed;
+            top: 0px;
+            z-index: 1;
+
+
+        }
+
+        .logo img {
+
+            height: 50px;
+            margin-left: 50px;
+            /* border: 2px solid red; */
+
+
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        .search {
+            margin-left: 20px;
+            margin-right: 20px;
+            height: 35px;
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 0px 10px;
+            border-radius: 2px;
+            /* border: 2px solid red; */
+            align-items: center;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            max-width: 600px;
+            min-width: 300px;
+            width: 450px;
+
+        }
+
+        .search ::placeholder {
+
+            margin-left: 20px;
+            /* border: 2px solid red; */
+            width: 100%;
+
+        }
+
+        .search img {
+            width: 81%;
+            margin-right: 5px;
+            /* border: 2px solid red; */
+            color: #2874f0;
+
+
+        }
+
+        .search input {
+            border: none;
+            outline: none;
+            margin-left: 10px;
+            width: 100%;
+
+        }
+
+        .loginbtn {
+            background-color: white;
+            font-size: 16px;
+            padding: 4px 30px;
+            border-radius: 2px;
+            /* border: 2px solid red; */
+            margin-right: 20px;
+            position: relative;
+
+
+        }
+
+        .loginbtn a {
+            text-decoration: none;
+            color: #2874f0;
+            font-weight: 550;
+
+        }
+
+        .login_menu {
+            position: absolute;
+            top: 25px;
+            height: 300px;
+            width: 250px;
+            background-color: transparent;
+            /* background-color: red; */
+            margin-left: -90px;
+            display: none;
+        }
+
+        .loginbtn:hover .login_menu {
+            display: block;
+        }
+
+        .login_list {
+            position: absolute;
+            top: 15px;
+            font-size: 15px;
+            background-color: white;
+            width: 100%;
+            height: auto;
+            box-shadow: rgba(0, 5, 5, 0.16) 0px 1px 4px;
+        }
+
+        .login_menu::before {
+            position: absolute;
+            top: 2px;
+            left: 105px;
+            content: "";
+            /* width: 20px;
+    height: 20px; */
+            border-top: 0px solid transparent;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 20px solid white;
+
+        }
+
+        .login_menu_top a:nth-child(1) {
+
+            color: rgb(43, 41, 41);
+        }
+
+        .login_menu_top {
+            margin-top: 10px;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .login_menu_top a {
+            padding: 10px;
+        }
+
+        .myProfile {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 100px 10px 20px;
+
+        }
+
+        .myProfile a:nth-child(2) {
+            color: rgb(61, 57, 57);
+            font-size: 13px;
+        }
+
+        .flikartPluseZone {
+            margin: 10px 10px 10px 20px;
+        }
+
+        .flikartPluseZone i {
+            font-size: 20px;
+            color: #2874f0;
+            margin-right: 30px;
+        }
+
+        .flikartPluseZone a {
+            color: rgb(49, 47, 47);
+            font-size: 13px;
+        }
+
+        .order {
+            margin: 10px 10px 10px 20px;
+        }
+
+        .order i {
+            font-size: 20px;
+            color: #2874f0;
+            margin-right: 30px;
+        }
+
+        .order a {
+            color: rgb(49, 47, 47);
+            font-size: 13px;
+        }
+
+        .wishlist {
+            margin: 10px 10px 10px 20px;
+        }
+
+        .wishlist i {
+            font-size: 20px;
+            color: #2874f0;
+            margin-right: 30px;
+        }
+
+        .wishlist a {
+            color: rgb(49, 47, 47);
+            font-size: 13px;
+        }
+
+        .reward {
+            margin: 10px 10px 10px 20px;
+        }
+
+        .reward i {
+            font-size: 20px;
+            color: #2874f0;
+            margin-right: 30px;
+        }
+
+        .reward a {
+            color: rgb(49, 47, 47);
+            font-size: 13px;
+        }
+
+        .Giftcard {
+            margin: 10px 10px 10px 20px;
+        }
+
+        .Giftcard i {
+            font-size: 20px;
+            color: #2874f0;
+            margin-right: 30px;
+        }
+
+        .Giftcard a {
+            color: rgb(49, 47, 47);
+            font-size: 13px;
+        }
+
+        .Seller {
+            color: white;
+            font-weight: 550;
+            font-size: 16px;
+            text-decoration: none;
+            margin: 0px 20px;
+        }
+
+        .more a {
+            color: white;
+            font-weight: 550;
+            font-size: 16px;
+            text-decoration: none;
+            margin: 0px 20px;
+        }
+
+        .more {
+            position: relative;
+        }
+
+        .more_menu {
+            position: absolute;
+            top: 20px;
+            height: 200px;
+            width: 280px;
+            background-color: transparent;
+            margin-left: -90px;
+            display: none;
+
+        }
+
+        .more:hover .more_menu {
+            display: block;
+        }
+
+        .more_list {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 16px;
+            background-color: white;
+            box-shadow: rgba(0, 5, 5, 0.16) 0px 1px 4px;
+            padding: 20px 5px 20px 5px;
+
+        }
+
+        .more_menu::before {
+            position: absolute;
+            top: 2px;
+            left: 120px;
+            content: "";
+            /* width: 20px;
+    height: 20px; */
+            border-top: 0px solid transparent;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 20px solid white;
+
+        }
+
+        .more_list>div>a:nth-child(1) {
+            color: #2874f0;
+        }
+
+        .more_list>div>a:nth-child(2) {
+            font-size: 13px;
+            text-align: center;
+            color: rgb(41, 38, 38);
+
+        }
+
+        .more_list>div {
+            margin-bottom: 20px;
+            margin: 10px 0px 10px 0px;
+        }
+
+        .cart {
+            color: white;
+            font-weight: 550;
+            font-size: 16px;
+            text-decoration: none;
+            margin: 0px 20px;
+        }
+
+        .cart a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* *************************************************For PRoduct********************************************************** */
+        #productContainer {
+            /* border: 2px solid red; */
+            display: grid;
+            grid-template-columns: repeat(4, 20%);
+            gap: 20px;
+            margin-top: 100px;
+            padding-left: 150px;
+        }
+
+        #productContainer img {
+            width: 100%;
+            border-radius: 5px;
+
+        }
+
+        #productContainer div {
+            margin-top: 20px;
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+        }
+
+        #productContainer div button {
+            background-color: #f02828;
+            padding: 3px;
+            margin: 20px;
+            border: none;
+            color: white;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="nav">
+        <div class="logo">
+            <a href="index.html"><img src="./FQ-logo.png" alt="error"></a>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Search for products, brands and more">
+            <a href=""><img src="./icons8-found-24.png" alt=""></a>
+
+        </div>
+
+        <div class="loginbtn">
+            <div>
+                <a href="loginpage.html">Log in</a>
+            </div>
+            <div class="login_menu">
+                <div class="login_list">
+                    <div class="login_menu_top">
+                        <a href="">New Customer ?</a>
+                        <a href="loginpage.html">Sing Up</a>
+                    </div>
+                    <hr>
+                    <div class="myProfile">
+                        <a href=""> <i class="fa-regular fa-user"></i></a>
+
+                        <a href="">My Profile</a>
+                    </div>
+                    <hr>
+                    <div class="flikartPluseZone">
+                        <a href=""><i class="fa-solid fa-plus"></i></a>
+                        <a href="">flikart Pluse Zone</a>
+                    </div>
+                    <hr>
+                    <div class="order">
+                        <a href=""><i class="fa-solid fa-square"></i></a>
+                        <a href="">Orders</a>
+                    </div>
+                    <hr>
+                    <div class="wishlist">
+                        <a href=""><i class="fa-solid fa-heart"></i></a>
+                        <a href="">Wishlist</a>
+                    </div>
+                    <hr>
+                    <div class="reward">
+                        <a href=""><i class="fa-solid fa-folder"></i></a>
+                        <a href="">Rewards</a>
+                    </div>
+                    <hr>
+                    <div class="Giftcard">
+                        <a href=""><i class="fa-solid fa-ticket"></i></a>
+                        <a href="">Giftcard</a>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <a class="Seller" href="">Become a Seller</a>
+        <div class="more">
+            <a href="">More</a>
+
+            <div class="more_menu">
+                <div class="more_list">
+                    <div class="notification">
+                        <a href="">
+                            <i class="fa-solid fa-bell"></i>
+                        </a>
+                        <a href="">Notification Preference</a>
+                    </div>
+                    <hr>
+                    <div class="Customer">
+                        <a href=""><i class="fa-solid fa-question"></i></a>
+                        <a href="">24X7 Customer Care</a>
+                    </div>
+                    <hr>
+                    <div class="Advertise">
+                        <a href=""><i class="fa-solid fa-arrow-trend-up"></i></a>
+                        <a href="">Advertise</a>
+                    </div>
+                    <hr>
+                    <div class="App">
+                        <a href=""><i class="fa-solid fa-download"></i></a>
+                        <a href="">Download App</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="cart">
+           <a href="cart.html"> <i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="cart.html">Cart</a>
+        </div>
+
+
+    </header>
+    <div id="productContainer">
+
+    </div>
+
+
+
+</body>
+<script>
+
+
+    let url = "https://63cd051ed4d47898e39135e4.mockapi.io/data"
+    async function fetchData() {
+        try {
+            let res = await fetch(url);
+            res = await res.json();
+            console.log(res)
+            displayData(res)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    fetchData()
+    let productContainer = document.getElementById("productContainer");
+    let cartArr = JSON.parse(localStorage.getItem("cart")) || []
+    function displayData(data) {
+        productContainer.innerHTML="";
+        data.forEach(element => {
+            let div = document.createElement("div");
+            let img = document.createElement("img");
+            let name = document.createElement("h3");
+            let price = document.createElement("h2");
+            let button = document.createElement("button");
+            img.src = element.image;
+            name.innerText = element.name;
+            price.innerText = element.price;
+            button.innerText = "Buy Now";
+            button.addEventListener("click", function () {
+                
+                if (checkDuplicate(element)) {
+                    alert("item already in the Cart!!");
+                    
+                }else{
+                cartArr.push({ ...element, quantity: 1 });
+                localStorage.setItem("cart", JSON.stringify(cartArr))
+                alert("item added successfully!!")
+                }
+            })
+            div.append(img, name, price, button)
+            productContainer.append(div)
+        });
+
+    }
+
+
+
+    function checkDuplicate(element) {
+        for (let i = 0; i < cartArr.length; i++) {
+            if (cartArr[i].id == element.id) {
+                return true
+            } 
+        }
+        return false;
+    }
+
+</script>
+
+</html>
