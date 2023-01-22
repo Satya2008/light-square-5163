@@ -5,6 +5,8 @@ let imgArr=[
     "https://www.linkpicture.com/q/slide2_6.png",
     ""
 ]
+let previous=document.querySelector(".pre");
+let next=document.querySelector(".next");
 
 let image= document.getElementById("imageSlider");
 let count=0; 
@@ -18,6 +20,23 @@ let img=document.createElement("img");
 img.src=imgArr[count]
 div.append(img)
 image.append(div)
+// previous.addEventListener("click", function(){
+//     img.src=imgArr[count]
+//     if(count==imgArr[0]){
+//         count=0
+//     }
+//     count--
+//     console.log("No")
+// })
+// next.addEventListener("click", function(){
+//     img.src=imgArr[count]
+//     if(count==imgArr.length-1){
+//         count=0
+//     }
+//     count++
+//     console.log("Yes")
+// })
+
 setInterval(() => {
     image.innerHTML=null
     count++
@@ -31,3 +50,10 @@ setInterval(() => {
     image.append(div)
    
 }, 2000);
+// ************************api**********************************************************************************************************************
+
+  
+
+
+
+
